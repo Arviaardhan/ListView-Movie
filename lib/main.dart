@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:listview_movie/screen/movie_list_screen.dart';
+import 'package:listview_movie/ListView.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'List View',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       ),
-      home: MovieList(),
+        home: ListViewPage()
     );
   }
 }
