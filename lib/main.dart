@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'List View',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: GoogleFonts.poppins().fontFamily,
