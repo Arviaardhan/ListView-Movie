@@ -56,6 +56,17 @@ flutter:
 
   assets:
     - assets/cars.jpg
+    - assets/up.jpg
+    - assets/ratatouille.jpg
+    - assets/monster.jpg
+    - assets/httyd.jpeg
+    - assets/brave.jpg
+    - assets/incredible.jpg
+    - assets/bolt.jpg
+    - assets/nemo.jpg
+    - assets/insideout.jpg
+    - assets/astroboy.jpg
+    - assets/tangled.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
