@@ -94,7 +94,7 @@ class _ListViewPageState extends State<ListViewPage> {
                               itemSize: 30,
                               itemBuilder: (context, _) => Icon(
                                 Icons.star,
-                                color: Colors.amber,
+                                color: Colors.blue,
                               ),
                               onRatingUpdate: (rating) {
                                 print(rating);
