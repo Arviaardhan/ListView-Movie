@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:listview_movie/Movie.dart';
 
 class ListViewPage extends StatefulWidget {
@@ -15,18 +16,18 @@ class _ListViewPageState extends State<ListViewPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Movie cars = new Movie('assets/cars.jpg', 'Cars', '2006', '1 jam 57 menit', 'Adventure, Animation', '8.2 / 10');
-    Movie up = new Movie('assets/up.jpg', 'Up', '2009', '1 jam 36 menit', 'Adventure, Animation', '8.3 / 10');
-    Movie ratatouille = new Movie('assets/ratatouille.jpg', 'Ratatouille', '2007', '1 jam 51 menit', 'Adventure, Animation, Comedy', '8.1 / 10');
-    Movie monster = new Movie('assets/monster.jpg', 'Monster, Inc', '2001', '94 menit', 'Adventure, Animation, Comedy', '8.0 / 10');
-    Movie dragon = new Movie('assets/httyd.jpeg', 'How To Train Your Dragon', '	2010', '1 jam 38 menit', 'Action, Adventure, Animation', '8.1 / 10');
-    Movie brave = new Movie('assets/brave.jpg', 'Brave', '2012', '1 jam 33 menit', 'Fantasy, Adventure, Animation', '8.5 / 10');
-    Movie incredibles = new Movie('assets/incredible.jpg', 'The Incredibles', '	2004', '1 jam 55 menit', 'Comedy, Adventure, Animation', '7.9 / 10');
-    Movie bolt = new Movie('assets/bolt.jpg', 'Bolt', '2008', '1 jam 36 menit', 'Action, Sci-Fi, Adventure, Animation', '7.8 / 10');
-    Movie nemo = new Movie('assets/nemo.jpg', 'Finding Nemo', '2003', '1 jam 40 menit', 'Adventure, Comedy, Animation', '8.2 / 10');
-    Movie insideOut = new Movie('assets/insideout.jpg', 'Inside Out', '2015', '1 jam 35 menit', 'Family, Comedy, Animation', '8.1 / 10');
-    Movie astroBoy = new Movie('assets/astroboy.jpg', 'Astro Boy', '2009', '1 jam 34 menit', 'Family, Sci-fi, Animation', '7.7 / 10');
-    Movie tangled = new Movie('assets/tangled.jpg', 'Tangled', '2010', '1 jam 40 menit', 'Family, Adventure, Animation', '7.9 / 10');
+    Movie cars = new Movie('assets/cars.jpg', 'Cars', '2006', '1 jam 57 menit', 'Adventure, Animation', 5.0);
+    Movie up = new Movie('assets/up.jpg', 'Up', '2009', '1 jam 36 menit', 'Adventure, Animation', 4.5);
+    Movie ratatouille = new Movie('assets/ratatouille.jpg', 'Ratatouille', '2007', '1 jam 51 menit', 'Adventure, Animation, Comedy', 5.0);
+    Movie monster = new Movie('assets/monster.jpg', 'Monster, Inc', '2001', '94 menit', 'Adventure, Animation, Comedy', 4.0);
+    Movie dragon = new Movie('assets/httyd.jpeg', 'How To Train Your Dragon', '	2010', '1 jam 38 menit', 'Action, Adventure, Animation', 4.5);
+    Movie brave = new Movie('assets/brave.jpg', 'Brave', '2012', '1 jam 33 menit', 'Fantasy, Adventure, Animation', 5.0);
+    Movie incredibles = new Movie('assets/incredible.jpg', 'The Incredibles', '	2004', '1 jam 55 menit', 'Comedy, Adventure, Animation', 4.5);
+    Movie bolt = new Movie('assets/bolt.jpg', 'Bolt', '2008', '1 jam 36 menit', 'Action, Sci-Fi, Adventure, Animation', 4.0);
+    Movie nemo = new Movie('assets/nemo.jpg', 'Finding Nemo', '2003', '1 jam 40 menit', 'Adventure, Comedy, Animation', 4.5);
+    Movie insideOut = new Movie('assets/insideout.jpg', 'Inside Out', '2015', '1 jam 35 menit', 'Family, Comedy, Animation', 4.0);
+    Movie astroBoy = new Movie('assets/astroboy.jpg', 'Astro Boy', '2009', '1 jam 34 menit', 'Family, Sci-fi, Animation', 4.0);
+    Movie tangled = new Movie('assets/tangled.jpg', 'Tangled', '2010', '1 jam 40 menit', 'Family, Adventure, Animation', 5.0);
     movie?.add(cars);
     movie?.add(up);
     movie?.add(ratatouille);
@@ -80,7 +81,27 @@ class _ListViewPageState extends State<ListViewPage> {
                         Text('Rilis : ' + movie![index].rilis,),
                         Text('Durasi : ' + movie![index].durasi),
                         Text('Genre : ' + movie![index].genre),
-                        Text('Rating : ' + movie![index].rating),
+                        Row(
+                          children: [
+                            Text('Rating : '),
+                            RatingBar.builder(
+                              initialRating: movie![index].rating,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                              itemSize: 30,
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.blue,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                            )
+                          ],
+                        ),
                       ],
                     ),
                   ),
